@@ -5,6 +5,19 @@ resources:
 patches:
 - patch: |-
     apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: argocd-application-controller
+      namespace: argocd
+      labels:
+        app.kubernetes.io/component: application-controller
+        app.kubernetes.io/name: argocd-application-controller
+        app.kubernetes.io/part-of: argocd
+  target:
+    kind: ServiceAccount
+    name: argocd-application-controller
+- patch: |-
+    apiVersion: v1
     kind: ConfigMap
     metadata:
       name: argocd-cm
@@ -17,18 +30,6 @@ patches:
   target:
     kind: ConfigMap
     name: argocd-cm
-- patch: |-
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      labels:
-        app.kubernetes.io/component: application-controller
-        app.kubernetes.io/name: argocd-application-controller
-        app.kubernetes.io/part-of: argocd
-      name: argocd-application-controller
-  target:
-    kind: ServiceAccount
-    name: argocd-application-controller
 - patch: |-
     apiVersion: v1
     kind: ConfigMap
