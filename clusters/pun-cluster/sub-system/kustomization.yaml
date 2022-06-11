@@ -20,6 +20,21 @@ patches:
     namespace: argocd
 - patch: |-
     apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: argocd-application-controller
+      namespace: argocd
+      labels:
+        app.kubernetes.io/name: argocd-application-controller
+        app.kubernetes.io/part-of: argocd
+    data:
+      users.anonymous.enabled: "true"
+  target:
+    kind: ConfigMap
+    name: argocd-cm
+    namespace: argocd
+- patch: |-
+    apiVersion: v1
     kind: ConfigMap
     metadata:
       labels:
