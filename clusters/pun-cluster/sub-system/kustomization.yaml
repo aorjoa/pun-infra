@@ -4,15 +4,9 @@ resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.2.9/manifests/install.yaml
 patches:
 - patch: |-
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      name: argocd-application-controller
-      namespace: argocd
-      labels:
-        app.kubernetes.io/component: application-controller
-        app.kubernetes.io/name: argocd-application-controller
-        app.kubernetes.io/part-of: argocd
+  - op: add
+    path: /metadata/namespace
+    value: argocd
   target:
     kind: ServiceAccount
     name: argocd-application-controller
