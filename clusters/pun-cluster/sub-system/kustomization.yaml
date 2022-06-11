@@ -17,7 +17,6 @@ patches:
   target:
     kind: ConfigMap
     name: argocd-cm
-    namespace: argocd
 - patch: |-
     apiVersion: v1
     kind: ServiceAccount
@@ -30,7 +29,6 @@ patches:
   target:
     kind: ServiceAccount
     name: argocd-application-controller
-    namespace: argocd
 - patch: |-
     apiVersion: v1
     kind: ConfigMap
@@ -51,7 +49,6 @@ patches:
   target:
     kind: ConfigMap
     name: argocd-rbac-cm
-    namespace: argocd
 images:
 - name: quay.io/argoproj/argocd:v2.2.9
   newName: ghcr.io/flux-subsystem-argo/fsa/argocd
