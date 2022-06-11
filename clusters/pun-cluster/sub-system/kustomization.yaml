@@ -8,6 +8,7 @@ patches:
     kind: ConfigMap
     metadata:
       name: argocd-cm
+      namespace: argocd
       labels:
         app.kubernetes.io/name: argocd-cm
         app.kubernetes.io/part-of: argocd
@@ -16,6 +17,7 @@ patches:
   target:
     kind: ConfigMap
     name: argocd-cm
+    namespace: argocd
 - patch: |-
     apiVersion: v1
     kind: ConfigMap
@@ -24,6 +26,7 @@ patches:
         app.kubernetes.io/name: argocd-rbac-cm
         app.kubernetes.io/part-of: argocd
       name: argocd-rbac-cm
+      namespace: argocd
     data:
       policy.default: role:readonly
       policy.csv: |
@@ -35,6 +38,7 @@ patches:
   target:
     kind: ConfigMap
     name: argocd-rbac-cm
+    namespace: argocd
 images:
 - name: quay.io/argoproj/argocd:v2.2.9
   newName: ghcr.io/flux-subsystem-argo/fsa/argocd
