@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pun-api
+  namespace: pun-namespace
+spec:
+  selector:
+    matchLabels:
+      app: pun-api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: pun-api
+    spec:
+      containers:
+      - name: pun-api
+        image: ghcr.io/aorjoa/pun-api:latest
+        ports:
+        - containerPort: 8080
