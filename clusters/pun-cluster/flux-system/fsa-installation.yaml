@@ -12,7 +12,7 @@ metadata:
 spec:
   prune: true
   interval: 2m
-  path: "./clusters/pun-cluster/sub-system/fsa-installation/kustomization.yaml"
+  path: "./clusters/pun-cluster"
   sourceRef:
     kind: GitRepository
     name: pun-fsa
