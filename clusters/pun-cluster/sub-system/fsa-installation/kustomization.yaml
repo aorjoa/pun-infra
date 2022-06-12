@@ -4,9 +4,9 @@ resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.2.9/manifests/install.yaml
 patches:
 - patch: |-
-  - op: add
-    path: /metadata/namespace
-    value: argocd
+    - op: add
+      path: /metadata/namespace
+      value: argocd
   target:
     kind: ServiceAccount
     name: argocd-application-controller
@@ -48,4 +48,3 @@ images:
 - name: quay.io/argoproj/argocd:v2.2.9
   newName: ghcr.io/flux-subsystem-argo/fsa/argocd
   newTag: v2.2.9-fl.1-main-2ddd651d
- 
