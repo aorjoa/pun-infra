@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pun-api
-        image: ghcr.io/aorjoa/pun-api:432f4414c6463b09b41e8fb5c31828a0193312f3
+        image: ghcr.io/aorjoa/pun-api:cc83b942745d09bc83e485946c3f5b688fcfe5d0
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
